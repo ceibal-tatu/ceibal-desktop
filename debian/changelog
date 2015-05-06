@@ -1,3 +1,9 @@
+ceibal-desktop (0.1-63) tatu; urgency=medium
+
+  * Repack for tatu. 
+
+ -- Plan Ceibal <ceibal@plan.ceibal.edu.uy>  Wed, 06 May 2015 00:08:49 -0300
+
 ceibal-desktop (0.1-62) precise; urgency=low
 
   * Removed lucidor, gnome-paint and mypaint dependencies
