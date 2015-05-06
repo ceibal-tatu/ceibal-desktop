@@ -1,0 +1,51 @@
+LoadModule ssl_module /usr/lib/apache2/modules/mod_ssl.so
+<IfModule mod_ssl.c>
+SSLRandomSeed startup builtin
+SSLRandomSeed startup file:/dev/urandom 512
+SSLRandomSeed connect builtin
+SSLRandomSeed connect file:/dev/urandom 512
+AddType application/x-x509-ca-cert .crt
+AddType application/x-pkcs7-crl    .crl
+SSLPassPhraseDialog  exec:/usr/share/apache2/ask-for-passphrase
+SSLSessionCache        shmcb:${APACHE_RUN_DIR}/ssl_scache(512000)
+SSLSessionCacheTimeout  300
+SSLMutex  file:${APACHE_RUN_DIR}/ssl_mutex
+SSLCipherSuite HIGH:MEDIUM:!ADH:!MD5
+SSLProtocol all -SSLv2
+</IfModule>
+
+Listen 443
+
+LoadModule dav_module /usr/lib/apache2/modules/mod_dav.so
+LoadModule dav_fs_module /usr/lib/apache2/modules/mod_dav_fs.so
+LoadModule dav_lock_module /usr/lib/apache2/modules/mod_dav_lock.so
+
+DavLockDB /var/lock/apache2/webdav
+
+<VirtualHost 0.0.0.0:443>
+        SSLEngine on
+        SSLCertificateFile /etc/apache/ssl/sugarshare.crt
+        SSLCertificateKeyFile /etc/apache/ssl/sugarshare.key
+
+        <Directory /var/www/web1/web/>
+                Options Indexes MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        Alias /webdav /var/www/web1/web
+        DavLockDB /var/www/lock/lock_file
+
+        <Location /webdav>
+            DAV On
+            AuthType Basic
+            AuthName "webdav"
+            AuthUserFile /etc/passwd
+            Require valid-user
+            Allow from all
+            Satisfy Any
+        </Location>
+</VirtualHost>
+
+

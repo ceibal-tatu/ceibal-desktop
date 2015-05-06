@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=update-profile
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Updates and prepares the user profile
+Comment=Creates an unencrypted gnome keyring and makes sure all new files added to /etc/skel are in the user's home.

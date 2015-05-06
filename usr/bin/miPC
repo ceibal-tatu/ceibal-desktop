@@ -1,0 +1,30 @@
+#!/bin/bash
+
+IMG_VER=$(cat /etc/ceibal-version)
+TMP_FILE="/tmp/tpminfo"
+VERSION="/usr/bin/mi_version_parser.sh"
+
+test -f $TMP_FILE || TPMDoctor -a > $TMP_FILE
+
+function fecha {
+	CHAR1=$(echo $1 | cut -c1)
+	CHAR2=$(echo $1 | cut -c2)
+	CHAR3=$(echo $1 | cut -c3)
+	CHAR4=$(echo $1 | cut -c4)
+	CHAR5=$(echo $1 | cut -c6)
+	CHAR6=$(echo $1 | cut -c7)
+	CHAR7=$(echo $1 | cut -c9)
+	CHAR8=$(echo $1 | cut -c10)
+	echo $CHAR7$CHAR8"/"$CHAR5$CHAR6"/"$CHAR1$CHAR2$CHAR3$CHAR4
+}
+
+HWID=$(cat $TMP_FILE | grep TPM_HWID: | awk {'print $2'})
+BT=$(cat $TMP_FILE | grep BT: | awk {'print $2'})
+BC=$(cat $TMP_FILE | grep BC: | awk {'print $2'})
+ED=$(cat $TMP_FILE | grep ED: | awk {'print $2'})
+#ED=$(fecha $ED)
+ACT=$(bash $VERSION)
+
+zenity --info --title="Mi Laptop" --text "MI LAPTOP : $IMG_VER  \n \n---------SEGURIDAD----------- \nMi HWID: $HWID \nMarca de Arranque: $BT \nArranques restantes: $BC \nFecha de expiración: $ED \n \n--------ACTUALIZADOR--------- \nVersión de las Actualizaciones: \n $ACT  "
+
+rm -rf $TMP_FILE

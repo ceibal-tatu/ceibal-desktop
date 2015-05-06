@@ -1,0 +1,76 @@
+/desktop/sugar/browser/home_page http://www.ceibal.edu.uy
+
+/desktop/sugar/show_register false
+
+# 3G modem
+/desktop/sugar/network/gsm/plan ADSL Móvil
+/desktop/sugar/network/gsm/providers Ancel
+/desktop/sugar/network/gsm/country Uruguay
+
+# Metacity settings
+/apps/metacity/general/audible_bell                                     true
+/apps/metacity/general/button_layout                                    menu:minimize,maximize,close
+/apps/metacity/general/num_workspaces                                   2
+/apps/metacity/general/theme                                            Radiance
+/apps/metacity/general/titlebar_font                                    Droid Sans Bold 10
+/apps/metacity/general/visual_bell                                      true
+/apps/metacity/general/visual_bell_type                                 frame_flash
+/apps/metacity/global_keybindings/panel_run_dialog                      <Alt>F2
+
+
+#Gconf keys for dextrose 4 uy image
+#sdxo#2665 Notifications (gconf-controllable)
+/desktop/sugar/frame/show_notifications true
+
+#sdxo#2675 Do not auto-connect to adhoc-network(s)
+/desktop/sugar/network/do_not_autoconnect_to_adhoc_networks true
+
+#2515 Accessibility: disabled touchpad
+/desktop/sugar/deviceicon/show_touchpad true
+
+#2432 Notify the uploader, that the file be present for some fixed time only.
+/desktop/sugar/network/validity_of_uploaded_file_in_days 4
+
+#sdxo#2681 Making "Lease" gconf-controllable
+/desktop/sugar/extensions/aboutcomputer/display_lease true
+
+#sdxo#2652 1-to-N "Via School-Server"
+#/desktop/sugar/network/school_server_ip_address_or_dns_name comparte.ceibal.edu.uy
+
+#sdxo#2652 "Via Peer-to-Peer KEY"
+/desktop/sugar/network/is_peer_to_peer_sharing_available true
+
+#sdxo#2664 "Plazo"
+/desktop/sugar/extensions/aboutcomputer/display_plazo true
+
+#sdxo#2664 "Version de actual"
+/desktop/sugar/extensions/aboutcomputer/display_version_de_actual true
+
+#Set gnome background
+/desktop/gnome/background/picture_filename /usr/share/backgrounds/ceibal/ceibal.jpg
+
+#sdxo#2844 Share activities through ejabberd
+/desktop/sugar/collaboration/jabber_server ""
+
+#sdxo#3006 Show only english and spanish as valid languages
+/desktop/sugar/extensions/language/disable_showing_additional_olpc_languages true
+
+#sdxo#3003 Custom icons for ad-hoc networks
+/desktop/sugar/network/use_ceibal_specific_adhoc_icons true
+
+#2902 On-screen keyboard covers the text entry area on some activities
+/desktop/sugar/graphics/window_osk_scaling_factor 0.56
+
+#sdxo#3077 Window resizing in portrait mode
+/desktop/sugar/graphics/window_osk_scaling_factor_in_portrait_mode 0.735
+
+#sdxo#2996 View neighborhood: not connected when you do click in the icon.
+/desktop/sugar/network/connect_to_networks_on_single_click true
+
+#sdxo#2932 Add "Icon change" feature
+/desktop/sugar/extensions/show_icon_selector true
+
+#sdxo#3509 Change default sugar background
+/desktop/sugar/user/background /usr/share/backgrounds/ceibal/sugar.jpg
+
+

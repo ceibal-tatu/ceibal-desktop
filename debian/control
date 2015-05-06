@@ -1,0 +1,46 @@
+Source: ceibal-desktop
+Section: metapackages
+Priority: optional
+Maintainer: Plan Ceibal <ceibal@plan.ceibal.edu.uy>
+Build-Depends: debhelper (>= 7), python-all (>= 2.6.6-3~)
+Standards-Version: 3.9.2
+
+Package: ubuntu-live
+Architecture: all
+Description: ubuntu-live^ task dependencies
+Depends: casper, grub-pc, gparted, ubiquity-frontend-gtk, lupin-casper
+
+Package: base-system
+Architecture: all
+Description: system base packages
+Depends: bc, dc, jfsutils, ntfsprogs, reiserfsprogs, reiser4progs, xfsprogs, libnss-mdns, laptop-detect, openssh-client, acpi-support, acpid, alsa-base, alsa-utils, anacron, avahi-daemon, avahi-autoipd, avahi-utils, ca-certificates, consolekit, doc-base, hal, screen, aptitude, at, busybox-static, cpio, cron, dmidecode, dnsutils, dosfstools, ed, file, ftp, hdparm, info, language-selector-common, logrotate, lshw, lsof, ltrace, man-db, mime-support, parted, nano, pciutils, psmisc, rsync, strace, time, usbutils, wget, wireless-tools, btrfs-tools, unzip, zip, beep, unp, bash-completion, unrar
+
+Package: desktop-common
+Architecture: all
+Description: desktop-common
+Depends: base-system, apt-xapian-index, dmz-cursor-theme, xcursor-themes, foo2zjs, min12xxw, pxljr, splix, im-switch, hplip, ghostscript-x, foomatic-db, foomatic-db-engine, foomatic-filters, hpijs, genisoimage, dbus-x11, cups, cups-bsd, cups-client, cups-driver-gutenprint, desktop-file-utils, openprinting-ppds, ttf-dejavu-core, ttf-droid, x-ttcidfont-conf, xdg-utils, xkb-data, xserver-xorg-lts-raring, xterm, pm-utils, xdg-user-dirs, xdg-user-dirs-gtk, ntfs-3g, ntfsprogs, dnsmasq-base, libdvdread4, libdvdnav4, libcdaudio1, usb-modeswitch-data, usb-modeswitch, mobile-broadband-provider-info, notify-osd, dconf-tools, unace, arj, p7zip, gstreamer0.10-plugins-ugly, ttf-beteckna, ttf-dustin, ttf-freefont, ttf-junicode, ttf-marvosym, ttf-mgopen, ttf-radisnoir, ttf-sil-andika, ttf-summersby, ttf-tiresias, ttf-tuffy, xnest, gstreamer0.10-ffmpeg, xfonts-scalable, libdirac-encoder0, libvpx1 
+
+Package: gnome-desktop
+Architecture: all
+Description: gnome-desktop packages
+Depends: base-system, desktop-common, gvfs-fuse, gvfs-backends, gnome-screensaver, alacarte, gnome-applets, gnome-control-center, gnome-media, gnome-menus, gnome-panel, indicator-applet-complete, gnome-power-manager, gnome-session-fallback, gnome-system-monitor, gnome-terminal, gnome-themes-standard, gstreamer0.10-alsa, gstreamer0.10-plugins-base-apps, gstreamer0.10-pulseaudio, libasound2-plugins, libgnomevfs2-extra, metacity, nautilus, nautilus-share, nautilus-sendto, pulseaudio, pulseaudio-esound-compat, pulseaudio-module-gconf, pulseaudio-module-x11, gnome-utils, rarian-compat, gedit, libgl1-mesa-glx, libgl1-mesa-dri, policykit-1-gnome, policykit-desktop-privileges, yelp, language-selector, libpam-ck-connector, libsasl2-modules, libxp6, speech-dispatcher, indicator-application, indicator-appmenu, indicator-messages, indicator-status-provider-pidgin, indicator-datetime, indicator-power, indicator-session, indicator-sound, libgnome2-perl, synaptic, system-config-printer-udev, system-config-printer-gnome, update-notifier, software-properties-gtk, apturl, xdg-user-dirs-gtk, screen-resolution-extra, zenity, gnome-keyring, libpam-gnome-keyring, network-manager-openvpn | wicd, network-manager-gnome | wicd, gnome-user-guide, compiz, firefox, ubufox, libreoffice-style-galaxy, libreoffice-style-tango, libreoffice-gnome, libreoffice-calc, libreoffice-impress, libreoffice-writer, totem, totem-mozilla, totem-plugins, evolution, evolution-plugins, evolution-indicator, evolution-webcal, gvfs-bin, espeak, espeak-data, inputattach, mousetweaks, usb-creator-gtk, gnome-xcf-thumbnailer, ooo-thumbnailer, ssh-askpass-gnome, gucharmap, evince, file-roller, gcalctool, transmission-gtk, simple-scan, aisleriot, gnome-sudoku, gnomine, glchess, gwibber, gwibber-service-digg, gwibber-service-facebook, gwibber-service-flickr, gwibber-service-foursquare, gwibber-service-friendfeed, gwibber-service-identica, gwibber-service-pingfm, gwibber-service-qaiku, gwibber-service-sina, gwibber-service-sohu, gwibber-service-statusnet, gwibber-service-twitter, python-indicate, python-libproxy, gnome-orca, libgail-3-0, libgail-common, gnome-accessibility-themes, at-spi2-core, libglib2.0-bin, libatk-adaptor, python-gobject-cairo, gimp, rhythmbox-mozilla, rhythmbox-plugins, python-mako
+
+Package: sugar-environment
+Architecture: all
+Description: sugar dependencies
+Depends: gir1.2-sugarext-1.0, libsugar-eventcontroller0, libsugarext-data, libsugarext0, python-carquinyol-0.98, python-jarabe-0.98, python-sugar-0.98, python-sugar-toolkit-0.98, python-sugar3, sucrose-0.98, sugar-artwork-0.98, sugar-emulator-0.98, sugar-session-0.98, sugar-tools-0.98, gir1.2-wnck-3.0, python-webkit, libwebkitgtk-3.0-0, libwebkitgtk-1.0-0, gir1.2-webkit-3.0, gir1.2-evince-3.0, python-pygame, espeak, gstreamer0.10-alsa, etoys, squeak-vm, libgnomevfs2-common, libgnomevfs2-0, tuxpaint, python-ceibal, python-xlib, gst-plugins-espeak, gstreamer1.0-pulseaudio, gir1.2-gstreamer-1.0, gir1.2-gst-plugins-base-1.0, gstreamer1.0-plugins-good, gstreamer1.0-plugins-ugly, gstreamer1.0-plugins-bad, gstreamer1.0-libav, sugar-update-control, libfltk1.1, python-elements, liblo7
+
+Package: ceibal-desktop
+Architecture: any
+Description: dependencies for the Ceibal desktop
+Pre-depends: linux-image-3.8.0-33-generic, linux-firmware
+Depends: ceibal-desktop-data, sugar-default-activities, gnome-desktop, sugar-environment, gnome-session-fallback, lightdm, unity-greeter, gnome-terminal, gnome-shell, update-manager, light-themes, fonts-droid, gnome-themes-standard, dmz-cursor-theme, ubuntu-wallpapers, gedit, libreoffice, calibre, evolution, geogebra, jclic, etoys, stellarium, blender, inkscape, gimp, gimp-help-es, gcad3d, guvcview, mathgraph, totem, gstreamer0.10-plugins-good, gstreamer0.10-plugins-bad, gstreamer0.10-plugins-ugly, openshot, frei0r-plugins, guvcview, cheese, audacity, firefox, icedtea-plugin, gnome-terminal, gnome-shell, update-manager, software-center, language-pack-en, language-pack-es, language-pack-gnome-en, language-pack-gnome-es, libreoffice-l10n-es, libreoffice-help-es, libreoffice-help-en-us, hyphen-en-us, mythes-en-us, firefox-locale-es, firefox-locale-en, aspell, aspell-en, aspell-es, dictionaries-common, language-pack-en-base, language-pack-gnome-en-base, wamerican, wbritish, wspanish, tdagent [i386], ubuntu-minimal, apache2, pitivi, ceibal-actualizador, ceibal-monitoreo, plymouth-theme-ubuntu-logo, plymouth-theme-ubuntu-text, grdesktop, x11vnc, vinagre, gbrainy, quadrapassel, mahjongg, empathy, telepathy-gnome, skype [i386], ceibal-notifier, gir1.2-poppler-0.18, ax [i386], magnifier-ceibal [i386], libgsf-1-114, onboard, gstreamer1.0-tools, oem-config-gtk, nspluginwrapper [i386], nspluginviewer [i386], libjpeg62, libreoffice-l10n-en-za, hunspell-en-ca, libreoffice-help-en-gb, mythes-en-au, kde-l10n-engb, libreoffice-l10n-en-gb, gthumb,  pinta, squeak-plugins-scratch, poppler-data, hunspell-en-us, myspell-es, openoffice.org-hyphenation, myspell-en-au, myspell-en-gb, language-pack-kde-es, myspell-en-za, gimp-help-en, kde-l10n-es, openoffice.org-hyphenation, vmpk, timidity
+
+Package: ceibal-desktop-data
+Architecture: all
+Description: Config files and scripts for the Ceibal desktop
+
+Package: sugar-default-activities
+Architecture: all
+Description: default set of sugar activities
+Depends: sugar-activity-bibliotecaceibal, sugar-activity-browse, sugar-activity-calculate, sugar-activity-cartoon-builder, sugar-activity-ceibalnotifica, sugar-activity-chat, sugar-activity-clock, sugar-activity-conozco-uruguay, sugar-activity-crea, sugar-activity-distance, sugar-activity-etoys, sugar-activity-flipsticks, sugar-activity-fototoon, sugar-activity-image-viewer, sugar-activity-implode, sugar-activity-jukebox, sugar-activity-labyrinth, sugar-activity-lectorceibal, sugar-activity-maze, sugar-activity-measure, sugar-activity-memorize, sugar-activity-paint, sugar-activity-pippy, sugar-activity-portfolio, sugar-activity-read, sugar-activity-record, sugar-activity-scratch, sugar-activity-speak, sugar-activity-story-builder, sugar-activity-tamtamedit, sugar-activity-tamtamjam, sugar-activity-tamtammini, sugar-activity-terminal, sugar-activity-turtleblocks, sugar-activity-turtlebots, sugar-activity-tuxpaint, sugar-activity-write

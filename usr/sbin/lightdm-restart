@@ -1,0 +1,9 @@
+#!/bin/bash
+
+grep -q 'profesor' /etc/passwd && exit 0
+
+trap "" SIGHUP SIGINT SIGTERM
+PATH=$PATH:/sbin:/usr/sbin
+
+RUNLEVEL=$(runlevel | cut -d' '  -f2)
+[ $RUNLEVEL = 2 ] && service lightdm restart

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Cambiar a Sugar
+GenericName=Sugar session
+Comment=Iniciar sesión en entorno Sugar
+Exec=/usr/bin/switch-session
+Terminal=false
+Type=Application
+Icon=sugar-xo
+Categories=Application;Education

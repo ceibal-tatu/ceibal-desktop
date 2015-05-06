@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=ajustar-resolucion
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[es_UY]=Ajustar resolución de la pantalla
+Name=Set screen resolution
+Comment[es_UY]=Modifica la resolución de la pantalla
+Comment=Sets screen resolution

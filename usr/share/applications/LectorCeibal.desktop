@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Lector Ceibal
+Comment=Ceibal Book reader
+Comment[es]=Lector de eBooks Ceibal
+Comment[es_UY]=Lector de eBooks Ceibal
+Name[es]=Lector Ceibal
+Name[es_UY]=Lector Ceibal
+Exec=/usr/share/sugar/activities/LectorCeibal.activity/gnome.sh %U
+Icon=/usr/share/sugar/activities/LectorCeibal.activity/activity/bookreader-activ.svg
+NotShowIn=KDE;
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=application/pdf;application/epub+zip;application/x-ceibal;
+Categories=GNOME;Application;Office;
+

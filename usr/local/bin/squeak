@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Wrapper for squeak vm
+
+VM_VERSION=`find /usr/lib/squeak/ -name "squeakvm" -type f|cut -f5 -d"/"`
+SQ_DIR=/usr/lib/squeak/$VM_VERSION
+VM="$SQ_DIR/squeakvm"
+
+if [ $# = 0 ]; then
+    exec /usr/bin/squeak
+else
+    exec $VM $@
+fi

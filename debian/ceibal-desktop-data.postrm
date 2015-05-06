@@ -1,0 +1,42 @@
+#!/bin/sh
+
+item="/usr/share/gnome-panel/panel-default-layout.layout"
+
+if [ remove = "$1" -o abort-install = "$1" -o disappear = "$1" -o abort-upgrade = "$1" ]
+then
+    [ -f "$item"".real" ] && dpkg-divert --package ceibal-desktop --remove --rename --divert "$item"".real" "$item"
+fi
+
+item="/etc/java-6-openjdk/sound.properties"
+
+if [ remove = "$1" -o abort-install = "$1" -o disappear = "$1" -o abort-upgrade = "$1" ]
+then
+    [ -f "$item"".real" ] && dpkg-divert --package ceibal-desktop --remove --rename --divert "$item"".real" "$item"
+fi
+
+if [ $(arch) = i686 ]; then
+
+    package=ceibal-desktop-data
+    kernel=3.8.0-33-generic
+
+    ITEMS="/lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtl8192ce/rtl8192ce.ko
+    /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtl8192de/rtl8192de.ko
+    /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtl8192se/rtl8192se.ko
+    /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko
+    /lib/firmware/rtlwifi/rtl8192cfw.bin
+    /lib/firmware/rtlwifi/rtl8192defw.bin
+    /lib/firmware/rtlwifi/rtl8192sefw.bin
+    /lib/firmware/rtlwifi/rtl8723fw_B.bin
+    /lib/firmware/rtlwifi/rtl8723fw.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192cfwU_B.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192cfwU.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192defw.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192sefw.bin"
+
+    for item in $ITEMS; do
+        if [ remove = "$1" -o abort-install = "$1" -o disappear = "$1" -o abort-upgrade = "$1" ]; then
+            [ -f "$item"".real" ] && dpkg-divert --package $package --remove --rename --divert "$item"".real" "$item"
+        fi
+    done
+
+fi

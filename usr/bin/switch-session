@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $DESKTOP_SESSION = "gnome-classic" ]; then
+    echo sugar > ~/.olpc-active-desktop
+    dbus-send --system --type=method_call --print-reply --dest=org.freedesktop.Accounts /org/freedesktop/Accounts/User$UID org.freedesktop.Accounts.User.SetXSession string:sugar > /dev/null 2>&1
+    gnome-session-quit
+else
+    pgrep -f sugar-session|xargs kill
+fi
+

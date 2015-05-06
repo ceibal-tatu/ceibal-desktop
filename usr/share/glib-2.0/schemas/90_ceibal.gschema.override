@@ -1,0 +1,44 @@
+[org.gnome.gnome-system-log]
+logfile='/var/log/syslog'
+logfiles=['/var/log/auth.log', '/var/log/dpkg.log', '/var/log/mail.log', '/var/log/syslog', '/var/log/Xorg.0.log']
+
+[org.gnome.settings-daemon.plugins.xsettings]
+antialiasing = 'rgba'
+hinting = 'slight'
+
+[org.gnome.desktop.background]
+show-desktop-icons=true
+picture-uri='file:///usr/share/backgrounds/ceibal/ceibal.jpg'
+picture-options='zoom'
+color-shading-type='solid'
+
+[com.canonical.unity-greeter]
+background='/usr/share/backgrounds/ceibal/ceibal.jpg'
+background-color='#000000'
+background-logo=''
+draw-grid=false
+draw-user-backgrounds=false
+font-name='Droid Sans 11'
+logo=''
+theme-name='Ambiance'
+
+[org.gnome.desktop.interface]
+cursor-theme='DMZ-White'
+enable-animations=true
+font-name='Droid Sans 10'
+document-font-name='Bitstream Charter 10'
+monospace-font-name='Monospace 9'
+gtk-theme='Radiance'
+buttons-have-icons=true
+menus-have-icons=true
+icon-theme='ubuntu-mono-light'
+
+[org.gnome.desktop.wm.preferences]
+titlebar-font='Droid Sans Bold 10'
+theme='Radiance'
+
+[org.gnome.desktop.sound]
+event-sounds=true
+
+[org.gnome.nautilus.desktop]
+font='Droid Sans Bold 9'

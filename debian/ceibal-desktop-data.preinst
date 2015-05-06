@@ -1,0 +1,110 @@
+#!/bin/sh
+
+if [ $(arch) = i686 ]; then
+
+    package=ceibal-desktop-data
+    kernel=3.8.0-33-generic
+
+    ITEMS="/lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtl8192ce/rtl8192ce.ko
+    /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtl8192de/rtl8192de.ko
+    /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtl8192se/rtl8192se.ko
+    /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/rtlwifi.ko
+    /lib/firmware/rtlwifi/rtl8192cfw.bin
+    /lib/firmware/rtlwifi/rtl8192defw.bin
+    /lib/firmware/rtlwifi/rtl8192sefw.bin
+    /lib/firmware/rtlwifi/rtl8723fw_B.bin
+    /lib/firmware/rtlwifi/rtl8723fw.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192cfwU_B.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192cfwU.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192defw.bin
+    /lib/firmware/$kernel/rtlwifi/rtl8192sefw.bin"
+
+    for item in $ITEMS; do
+        [ -f "$item"".real" ] && exit 0 || true
+        dpkg-divert --package $package --add --rename --divert "$item"".real" "$item" 
+    done
+
+fi
+
+item="/usr/share/gnome-panel/panel-default-layout.layout"
+
+if ! [ -f "$item"".real" ] ; then
+
+dpkg-divert --package ceibal-desktop --add --rename --divert "$item"".real" "$item"
+
+mkdir /usr/share/gnome-panel/ -p
+cat << EOF > $item
+[Toplevel top-panel]
+expand=true
+orientation=top
+size=24
+
+[Toplevel bottom-panel]
+expand=true
+orientation=bottom
+size=24
+y-bottom=0
+
+[Object menu-bar]
+object-iid=PanelInternalFactory::MenuBar
+toplevel-id=top-panel
+pack-index=0
+
+[Object browser]
+object-iid=PanelInternalFactory::Launcher
+@instance-config/location="file:///usr/share/applications/firefox.desktop"
+pack-index=1
+pack-type=start
+toplevel-id=top-panel
+
+[Object help]
+object-iid=PanelInternalFactory::Launcher
+@instance-config/location="file:///usr/share/applications/yelp.desktop"
+pack-index=1
+pack-type=start
+toplevel-id=top-panel
+
+[Object notification-area]
+object-iid=NotificationAreaAppletFactory::NotificationArea
+pack-index=1
+pack-type=end
+toplevel-id=top-panel
+
+[Object indicators]
+object-iid=IndicatorAppletCompleteFactory::IndicatorAppletComplete
+toplevel-id=top-panel
+pack-type=end
+pack-index=0
+
+[Object show-desktop]
+object-iid=WnckletFactory::ShowDesktopApplet
+toplevel-id=bottom-panel
+pack-index=0
+
+[Object window-list]
+object-iid=WnckletFactory::WindowListApplet
+toplevel-id=bottom-panel
+pack-index=1
+
+[Object workspace-switcher]
+object-iid=WnckletFactory::WorkspaceSwitcherApplet
+toplevel-id=bottom-panel
+pack-type=end
+pack-index=0
+EOF
+
+fi
+
+item="/etc/java-6-openjdk/sound.properties"
+
+[ -f "$item"".real" ] && exit 0 || true
+
+dpkg-divert --package ceibal-desktop --add --rename --divert "$item"".real" "$item"
+
+mkdir /etc/java-6-openjdk/ -p
+cat << EOF > $item
+javax.sound.sampled.Clip=com.sun.media.sound.DirectAudioDeviceProvider
+javax.sound.sampled.Port=com.sun.media.sound.PortMixerProvider
+javax.sound.sampled.SourceDataLine=com.sun.media.sound.DirectAudioDeviceProvider
+javax.sound.sampled.TargetDataLine=com.sun.media.sound.DirectAudioDeviceProvider
+EOF

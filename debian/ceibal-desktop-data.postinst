@@ -1,0 +1,32 @@
+#!/bin/sh
+
+if [ "$1" = "configure" ] ; then
+    update-gconf-defaults
+    glib-compile-schemas /usr/share/glib-2.0/schemas
+    update-desktop-database
+    apt-key add /usr/share/keyrings/dextrose.gpg
+
+    if [ $(arch) = i686 ]; then
+        kernel=3.8.0-33-generic
+        mkdir -p /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/
+        mkdir -p /lib/firmware/$kernel/rtlwifi/
+        cp /lib/modules/ceibal/* -a /lib/modules/$kernel/kernel/drivers/net/wireless/rtlwifi/
+        cp /lib/firmware/ceibal/* -a /lib/firmware/$kernel/rtlwifi/
+
+        /sbin/depmod -a $kernel
+    fi
+
+    # 1-to-N
+    mkdir -p /etc/apache/ssl
+    mkdir -p /var/www/web1/web/
+    chmod 777 /var/www/web1/web/ -R
+    if ! [ -f /etc/apache/ssl/sugarshare.crt ]; then
+        openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" -keyout /etc/apache/ssl/sugarshare.key -out /etc/apache/ssl/sugarshare.crt
+    fi
+
+    # auto-relogin
+    if ! grep -q session-cleanup-script /etc/lightdm/lightdm.conf; then
+        sed '/SeatDefaults/s/$/\nsession-cleanup-script=\/usr\/sbin\/lightdm-restart/' -i /etc/lightdm/lightdm.conf
+    fi
+
+fi
