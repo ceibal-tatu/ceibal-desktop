@@ -1,3 +1,9 @@
+ceibal-desktop (0.1-64) UNRELEASED; urgency=medium
+
+  * Updated dependency versions. 
+
+ -- Plan Ceibal <ceibal@plan.ceibal.edu.uy>  Sun, 31 May 2015 19:33:00 -0300
+
 ceibal-desktop (0.1-63) tatu; urgency=medium
 
   * Repack for tatu. 
