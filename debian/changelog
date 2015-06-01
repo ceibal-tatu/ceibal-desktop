@@ -1,3 +1,9 @@
+ceibal-desktop (0.1-66) tatu; urgency=medium
+
+  * Updated dependency versions. 
+
+ -- Plan Ceibal <ceibal@plan.ceibal.edu.uy>  Sun, 31 May 2015 21:53:26 -0300
+
 ceibal-desktop (0.1-65) tatu; urgency=medium
 
   * Updated dependency versions. 
